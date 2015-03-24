@@ -1,6 +1,5 @@
 import javax.swing.JComponent;
 
-// Teste de commit
 public abstract class Carte extends JComponent {
 
 	boolean imageCache;
