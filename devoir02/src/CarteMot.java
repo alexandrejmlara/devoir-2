@@ -21,7 +21,6 @@ public class CarteMot extends Carte {
 	public void paintRecto(Graphics2D g) {
 		super.paintComponent(g);
 		g.drawString(carteNom, 0, 0);
-		
 	}
 
 	@Override
