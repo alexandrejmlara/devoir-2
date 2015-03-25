@@ -2,15 +2,15 @@ import javax.swing.JComponent;
 
 public abstract class Carte extends JComponent {
 
-	private boolean imageFaceRecto;
+	private boolean isFace; // true = recto, false = verso
 	
 	/**
 	 * Un constructeur protected prenant un paramètre booléen  indiquant si la carte est sur sa face recto 
 	 * (côté image) ou verso (sur le dos, image cachée).
-	 * @param imageFaceRecto
+	 * @param isFace
 	 */
-	protected Carte (boolean imageFaceRecto){
-		this.imageFaceRecto=imageFaceRecto;
+	protected Carte (boolean isFace){
+		this.isFace = isFace;
 	}
 	
 	/**
@@ -18,7 +18,7 @@ public abstract class Carte extends JComponent {
 	 * @param c
 	 */
 	protected Carte (Carte c){
-		this.imageFaceRecto=c.imageFaceRecto;
+		this.isFace = c.isFace;
 	}
 	
 	
@@ -27,10 +27,9 @@ public abstract class Carte extends JComponent {
 	 * @return
 	 */
 	boolean estMontree(){
-		if(imageFaceRecto==true)
+		if(isFace)
 			return true;
-		else
-			return false;
+		return false;
 	}
 	
 	/**
@@ -38,10 +37,9 @@ public abstract class Carte extends JComponent {
 	 * @return
 	 */
 	boolean estCachee(){
-		if(imageFaceRecto==false)
+		if(!isFace)
 			return true;
-		else
-			return false;
+		return false;
 	}
 	
 	
