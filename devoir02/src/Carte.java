@@ -2,7 +2,7 @@ import javax.swing.JComponent;
 
 public abstract class Carte extends JComponent {
 
-	boolean imageFaceRecto;
+	private boolean imageFaceRecto;
 	
 	/**
 	 * 
