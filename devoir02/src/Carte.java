@@ -2,25 +2,39 @@ import javax.swing.JComponent;
 
 public abstract class Carte extends JComponent {
 
-	boolean imageCache;
+	boolean imageFaceRecto;
 	
-	protected Carte (boolean imageCache){
-		this.imageCache=imageCache;
+	/**
+	 * 
+	 * @param imageFaceRecto
+	 */
+	protected Carte (boolean imageFaceRecto){
+		this.imageFaceRecto=imageFaceRecto;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	boolean estMontree(){
-		if(imageCache==false)
+		if(imageFaceRecto==true)
 			return true;
 		else
 			return false;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	boolean estCachee(){
-		if(imageCache==true)
+		if(imageFaceRecto==false)
 			return true;
 		else
 			return false;
 	}
+	
+	
 	
 	
 }
