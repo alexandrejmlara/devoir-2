@@ -15,14 +15,15 @@ public class PanneauDeCartes {
     
     /**
      * 
-     * @param nRangees : nombre de rangées de cartes
+     * @param nRangees : nombre de rangÃ©es de cartes
      * @param nColonnes : nombre de colonnes de cartes
      * @param delaiAffichageInitial : temps d'affichage initial des cartes
-     * @param delaiAffichageMauvaisePaire : temps de délai lors d'une mauvaise paire
+     * @param delaiAffichageMauvaisePaire : temps de dÃ©lai lors d'une mauvaise paire
      */
+     // ATTENTION: il manque l'argument du tableau de carte
 	public void PanneauDeCartes(int nRangees, int nColonnes,  int delaiAffichageInitial, int delaiAffichageMauvaisePaire)
     {
-    	JFrame frame = new JFrame("Jeu de cartes mémoire");
+    	JFrame frame = new JFrame("Jeu de cartes mÃ©moire");
         
         GridLayout layout = new GridLayout(nRangees,nColonnes);
         layout.setHgap(10);
@@ -30,6 +31,8 @@ public class PanneauDeCartes {
         frame.setLayout(layout);
         JPanel pane = new JPanel();
         
+        
+        // ATTENTION: il faut changer les JButton pour des cartes
         for (int row = 0; row < nRangees; row++){
             for (int col = 0; col < nColonnes; col++){
                 JButton b = new JButton();
@@ -55,13 +58,13 @@ public class PanneauDeCartes {
     class MyMouseListener extends MouseAdapter
     {
         private int coup = 0;
-        public void setCoup(int c){coup += c;} // Permet d'incrémenter du nombre voulu
+        public void setCoup(int c){coup += c;} // Permet d'incrÃ©menter du nombre voulu
         public int getCoup(){return coup;} // Retourne le nombre de coups
         
         public void mouseClicked(MouseEvent event) // modifier ici pour action
         {
             //event.getSource();
-            System.out.println("Bravo, vous avez réussi en " + this.getCoup() + " coups!"); // À mettre dans une condition
+            System.out.println("Bravo, vous avez rÃ©ussi en " + this.getCoup() + " coups!"); // Ã€ mettre dans une condition
         } 
     }
 }
