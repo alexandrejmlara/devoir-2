@@ -4,8 +4,11 @@ import java.awt.event.*;
 
 
 public class PanneauDeCartes {
-	public Carte c;
-	public static int coup = 0;
+	
+	public Carte c1 = null; // Première carte retournée
+	public Carte c2 = null; // Deuxième carte retournée
+	
+	public static int coup = 0; // Nombre de coups effectué par l'utilisateur
 	public void setCoup(int c){coup += c;} // Permet d'incrémenter du nombre voulu
     public int getCoup(){return coup;} // Retourne le nombre de coups
 	
@@ -26,7 +29,7 @@ public class PanneauDeCartes {
      * @param delaiAffichageInitial : temps d'affichage initial des cartes
      * @param delaiAffichageMauvaisePaire : temps de délai lors d'une mauvaise paire
      */
-	public void PanneauDeCartes(int nRangees, int nColonnes,  int delaiAffichageInitial, int delaiAffichageMauvaisePaire)
+	public void PanneauDeCartes(int nRangees, int nColonnes, Carte[] cartes,  int delaiAffichageInitial, int delaiAffichageMauvaisePaire)
     {
     	JFrame frame = new JFrame("Jeu de cartes mémoire");
         
@@ -36,14 +39,11 @@ public class PanneauDeCartes {
         frame.setLayout(layout);
         JPanel pane = new JPanel();
         
-        for (int row = 0; row < nRangees; row++){
-            for (int col = 0; col < nColonnes; col++){
-                
-            	c = new CarteCouleur(false);
-            	c.addMouseListener(new MyMouseListener());
-                pane.add(c);
-            }
+        for(int i=0; i < cartes.length; i++){
+        	cartes[i].addMouseListener(new MyMouseListener());
+        	pane.add(cartes[i]);
         }
+        
         pane.setLayout(layout);
         
         
@@ -66,8 +66,24 @@ public class PanneauDeCartes {
             Object source = event.getSource();
         	if(source instanceof Carte){
             	Carte card = (Carte) source;
-            	if(card.estCachee()) card.retourne();
-            };
+            	if(c1 == null){
+            		card = c1;
+            		if(card.estCachee()) card.retourne();
+            	} else if(c2 == null){
+            		card = c2;
+            		if(card.estCachee()) card.retourne();
+            		if(c1.rectoIdentique(c2) == true){
+            			c1 = null;
+            			c2 = null;
+            		} else {
+            			c1.retourne();
+            			c2.retourne();
+            			c1 = null;
+            			c2 = null;
+            		}
+            	}
+            	
+            }
             
             
             setCoup(1);
