@@ -1,12 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.*;
 
 
 public class PanneauDeCartes {
 	public Carte c;
-	
+	public static int coup = 0;
+	public void setCoup(int c){coup += c;} // Permet d'incrémenter du nombre voulu
+    public int getCoup(){return coup;} // Retourne le nombre de coups
 	
 	public static void delai(long millisecondes)
     {
@@ -48,7 +49,7 @@ public class PanneauDeCartes {
         
         frame.getContentPane().add(pane, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.show();
+        frame.setVisible(true);
         frame.setSize (500, 500);
         
         
@@ -59,20 +60,18 @@ public class PanneauDeCartes {
     
     class MyMouseListener extends MouseAdapter
     {
-        // coup : compteur pour le nombre de coups effectué par le joueur
-    	private int coup = 0;
-        public void setCoup(int c){coup += c;} // Permet d'incrémenter du nombre voulu
-        public int getCoup(){return coup;} // Retourne le nombre de coups
         
         public void mouseClicked(MouseEvent event) // modifier ici pour action
         {
-            if(event.getSource()== c){
-            	c.retourne();
+            Object source = event.getSource();
+        	if(source instanceof Carte){
+            	Carte card = (Carte) source;
+            	if(card.estCachee()) card.retourne();
             };
             
             
             setCoup(1);
-        	System.out.println("Bravo, vous avez réussi en " + this.getCoup() + " coups!"); // À mettre dans une condition
+        	System.out.println("Bravo, vous avez réussi en " + getCoup() + " coups!"); // À mettre dans une condition
         } 
     }
 }
