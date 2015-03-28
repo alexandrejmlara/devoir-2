@@ -59,9 +59,9 @@ public abstract class GenerateurDeCartes {
 		
 		// Return a tableau of cartes couleur
 		if ( nom.equals("couleur") ) cartes = new GenerateurDeCartesCouleur().genereCartes(n);
-		else if ( nom.equals("motProvincesCanada") || nom.equals("motVillesQuebec") ) = new GenerateurDeCartesMot(nom);
-		else if ( nom.equals("imagePokemon") ) = new GenerateurDeCartesImage(nom);
-		else if ( nom.equals("multiple") ) = new GenerateurDeCartesMultiple();
+		else if ( nom.equals("motProvincesCanada") || nom.equals("motVillesQuebec") ) new GenerateurDeCartesMot(nom);
+		else if ( nom.equals("imagePokemon") ) new GenerateurDeCartesImage(nom);
+		else if ( nom.equals("multiple") ) new GenerateurDeCartesMultiple();
 		
 		return cartes;
 	}
@@ -82,9 +82,9 @@ public abstract class GenerateurDeCartes {
 		int i;
 		
 		if ( nom.equals("couleur") ) cartes = new GenerateurDeCartesCouleur().genereCartes(n);
-		else if ( nom.equals("motProvincesCanada") || nom.equals("motVillesQuebec") ) = new GenerateurDeCartesMot(nom).genereCartes(n);
-		else if ( nom.equals("imagePokemon") ) = new GenerateurDeCartesImage(nom).genereCartes(n);
-		else if ( nom.equals("multiple") ) = new GenerateurDeCartesMultiple().genereCartes(n);
+		else if ( nom.equals("motProvincesCanada") || nom.equals("motVillesQuebec") ) new GenerateurDeCartesMot(nom).genereCartes(n);
+		else if ( nom.equals("imagePokemon") ) new GenerateurDeCartesImage(nom).genereCartes(n);
+		else if ( nom.equals("multiple") ) new GenerateurDeCartesMultiple().genereCartes(n);
 		
 		for( i = 0; i < n; i++ ){
 			cartesDouble[i] = cartes[i];

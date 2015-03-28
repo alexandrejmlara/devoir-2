@@ -7,7 +7,7 @@ public class GenerateurDeCartesCouleur extends GenerateurDeCartes {
 	
 	Carte [] cartesCouleurs;
 	Boolean [] pickedCards = new Boolean[8];
-	Color [] couleurs = {Color.RED, Color.GREEN, Color.BLUE, Color.CYAN, 
+	Color [] optionsDeCouleurs = {Color.RED, Color.GREEN, Color.BLUE, Color.CYAN, 
 							Color.MAGENTA, Color.YELLOW, Color.PINK, Color.ORANGE};
 	
 	public GenerateurDeCartesCouleur(){
@@ -29,7 +29,7 @@ public class GenerateurDeCartesCouleur extends GenerateurDeCartes {
 	
 	public Carte genereUneCarte(){
 		Random rd = new Random();
-		int carteIndex = rd.nextInt(couleurs.length);
+		int carteIndex = rd.nextInt(optionsDeCouleurs.length);
 		
 		// In the case of all cards already were picked, reinitialize the array
 		// to choose a repeated one randomly
@@ -41,7 +41,7 @@ public class GenerateurDeCartesCouleur extends GenerateurDeCartes {
 		
 		CarteCouleur tempCouleur = new CarteCouleur(true);
 		Graphics g = tempCouleur.getGraphics();
-		g.setColor(couleurs[carteIndex]);
+		g.setColor(optionsDeCouleurs[carteIndex]);
 		tempCouleur.paintRecto(g);
 		
 		return tempCouleur;
@@ -67,7 +67,6 @@ public class GenerateurDeCartesCouleur extends GenerateurDeCartes {
 		}
 		
 		return isCardsPicked;
-		
 	}
 
 	@Override

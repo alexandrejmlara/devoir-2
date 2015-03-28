@@ -1,39 +1,77 @@
+import java.awt.Graphics;
 import java.util.Random;
 
 
 public class GenerateurDeCartesMot extends GenerateurDeCartes {
 
+	Carte [] cartesMots;
+	Boolean [] pickedCards = new Boolean[nombreDeCartesDifferentes()];
 	String nomDuTheme;
-	String[] provincesCanada= {"Alberta","Colombie-Britannique", "Ile-du-Prince-Edouard","Manitoba",
-			"Nouveau-Brunswick","Nouvelle-Ecosse","Ontario","Quebec", "Saskatchewan","Terre-Neuve-et-Labrador",
-			"Nunavut","Territoires du Nord-Ouest","Yukon"};
-	
-	String[] villesQuebec={"Quebec","Montreal","Laval","Gatineau","Longueuil","Sherbrooke","Saguenay","Trois-Rivieres",
-			"Terrebonne","Rimouski"};
+	String[] optionsDeMot;
 	
 	
-	GenerateurDeCartesMot(String nomDuTheme){
+	GenerateurDeCartesMot(String nomDuTheme, String[] Tableau){
 		super(nomDuTheme);
 		this.nomDuTheme=nomDuTheme;
+		this.optionsDeMot=Tableau;
 	}
 	
-	
-	/**
-	 * @return 13 : si nomDuTheme=="motProvincesCanada" : cest le total de provinces dans provincesCanada
-	 * @return 10 : si nomDuTheme1="motProvincesCanada", alors nomDuTheme=="motVillesQuebec" : cest le total de villes dans villesQuebec
-	 */
 	public int nombreDeCartesDifferentes() {
-		if(nomDuTheme=="motProvincesCanada")
-			return 13;
-		else 
-			return 10;	
+		return optionsDeMot.length;	
 	}
 
-
-	@Override
-	public Carte genereUneCarte() {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public Carte[] genereCartes(int n){
+		cartesMots = new Carte [n];
+		CarteCouleur tempMot = null;
+		Graphics g = null;
+		for  ( int i = 0; i < cartesMots.length; i++ ){
+			cartesMots[i] = genereUneCarte();
+		}
+		
+		return cartesMots;
 	}
+	
+	public Carte genereUneCarte(){
+		Random rd = new Random();
+		int carteIndex = rd.nextInt(optionsDeMot.length);
+		
+		// In the case of all cards already were picked, reinitialize the array
+		// to choose a repeated one randomly
+		if( isAllCardsPicked() ) initializePickedCardsArray();
+		
+		while( pickedCards[carteIndex] ){
+			carteIndex = rd.nextInt(cartesMots.length);			
+		}
+		
+		CarteMot tempMot = new CarteMot(true,optionsDeMot[carteIndex]);
+		Graphics g = tempMot.getGraphics();
+		tempMot.paintRecto(g);
+		
+		return tempMot;
+		
+	}
+	
+	private void initializePickedCardsArray(){
+		
+		for ( int i = 0; i < pickedCards.length; i++ ){
+			pickedCards[i] = false;
+		}
+		
+	}
+	
+	private boolean isAllCardsPicked(){
+		
+		boolean isCardsPicked = true;
+		for ( int i = 0; i < pickedCards.length; i++ ){
+			if(!pickedCards[i]) {
+				isCardsPicked = false;
+				break;
+			}
+		}
+		
+		return isCardsPicked;
+	}
+}
 	
 	

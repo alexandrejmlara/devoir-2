@@ -2,7 +2,8 @@ import java.awt.*;
 
 public class CarteCouleur extends Carte {
 	private static final long serialVersionUID = 1L;
-	String carteNom;
+	
+	private String carteNom;
 	private Color couleur;
 
 	public CarteCouleur(boolean isFace) {
@@ -16,7 +17,6 @@ public class CarteCouleur extends Carte {
 
 	
 	public void paintRecto(Graphics g){
-		g.setColor(Color.RED);
 		g.fillRect(0, 0, getWidth(), getHeight());
 	};
 
