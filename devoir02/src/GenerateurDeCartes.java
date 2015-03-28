@@ -81,7 +81,7 @@ public abstract class GenerateurDeCartes {
 		else if ( nom.equals("motVillesQuebec") ) new GenerateurDeCartesMot(nom,motVillesQuebecArray);
 		else if ( nom.equals("imagePokemon") ) new GenerateurDeCartesImages(nom,imagePokemonArray);
 		else if ( nom.equals("imageDrapeau") ) new GenerateurDeCartesImages(nom,imageDrapeauArray);
-		else if ( nom.equals("multiple") ) new GenerateurDeCartesMultiple();
+		else if ( nom.equals("multiple") ) new GenerateurDeCartesMultiples(nom, motProvincesCanadaArray, motVillesQuebecArray,imagePokemonArray,imageDrapeauArray);
 		
 		return cartes;
 	}
@@ -106,7 +106,7 @@ public abstract class GenerateurDeCartes {
 		else if ( nom.equals("motVillesQuebec") ) new GenerateurDeCartesMot(nom,motVillesQuebecArray).genereCartes(n);
 		else if ( nom.equals("imagePokemon") ) new GenerateurDeCartesImages(nom,imagePokemonArray).genereCartes(n);
 		else if ( nom.equals("imageDrapeau") ) new GenerateurDeCartesImages(nom,imageDrapeauArray).genereCartes(n);
-		else if ( nom.equals("multiple") ) new GenerateurDeCartesMultiple().genereCartes(n);
+		else if ( nom.equals("multiple") ) new GenerateurDeCartesMultiples(nom, motProvincesCanadaArray, motVillesQuebecArray,imagePokemonArray,imageDrapeauArray).genereCartes(n);
 		
 		for( i = 0; i < n; i++ ){
 			cartesDouble[i] = cartes[i];
