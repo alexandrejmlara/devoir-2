@@ -1,5 +1,8 @@
 import java.awt.Graphics;
+import java.awt.Image;
 import java.util.Random;
+
+import javax.swing.ImageIcon;
 
 
 public class GenerateurDeCartesImages extends GenerateurDeCartes {
@@ -45,7 +48,10 @@ public class GenerateurDeCartesImages extends GenerateurDeCartes {
 		CarteImage tempImage = new CarteImage (true, optionsDeImage[carteIndex]);
 		Graphics g = tempImage.getGraphics();
 		
-		//colocar o ImageIcon
+		ImageIcon image = new ImageIcon (getClass().getResource(optionsDeImage[carteIndex]));
+		
+		Image img = image.getImage();
+		g.drawImage(img, 0,0, width, height, this);
 		tempImage.paintRecto(g);
 		
 		return tempImage;
