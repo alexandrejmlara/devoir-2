@@ -14,22 +14,22 @@ public abstract class GenerateurDeCartes {
 			"Nunavut","Territoires du Nord-Ouest","Yukon"};
 	String[]motVillesQuebecArray={"Quebec","Montreal","Laval","Gatineau","Longueuil","Serbrooke","Saguenay",
 			"Trois-Rivieres","Terrebonne","Rimouski"};
-	String[]imagePokemonArray={"resources/Pokemon/pokemon1.jpg","resources/Pokemon/pokemon2.jpg",
-			"resources/Pokemon/pokemon3.jpg","resources/Pokemon/pokemon4.jpg","resources/Pokemon/pokemon5.jpg",
-			"resources/Pokemon/pokemon6.jpg","resources/Pokemon/pokemon7.jpg","resources/Pokemon/pokemon8.jpg",
-			"resources/Pokemon/pokemon9.jpg","resources/Pokemon/pokemon10.jpg","resources/Pokemon/pokemon11.jpg",
-			"resources/Pokemon/pokemon12.jpg","resources/Pokemon/pokemon13.jpg","resources/Pokemon/pokemon14.jpg",
-			"resources/Pokemon/pokemon15.jpg","resources/Pokemon/pokemon16.jpg","resources/Pokemon/pokemon17.jpg",
-			"resources/Pokemon/pokemon18.jpg","resources/Pokemon/pokemon19.jpg","resources/Pokemon/pokemon20.jpg"};
+	String[]imagePokemonArray={"devoir02/resources/Pokemon/pokemon1.jpg","devoir02/resources/Pokemon/pokemon2.jpg",
+			"devoir02/resources/Pokemon/pokemon3.jpg","devoir02/resources/Pokemon/pokemon4.jpg","devoir02/resources/Pokemon/pokemon5.jpg",
+			"devoir02/resources/Pokemon/pokemon6.jpg","devoir02/resources/Pokemon/pokemon7.jpg","devoir02/resources/Pokemon/pokemon8.jpg",
+			"devoir02/resources/Pokemon/pokemon9.jpg","devoir02/resources/Pokemon/pokemon10.jpg","devoir02/resources/Pokemon/pokemon11.jpg",
+			"devoir02/resources/Pokemon/pokemon12.jpg","devoir02/resources/Pokemon/pokemon13.jpg","devoir02/resources/Pokemon/pokemon14.jpg",
+			"devoir02/resources/Pokemon/pokemon15.jpg","devoir02/resources/Pokemon/pokemon16.jpg","devoir02/resources/Pokemon/pokemon17.jpg",
+			"devoir02/resources/Pokemon/pokemon18.jpg","devoir02/resources/Pokemon/pokemon19.jpg","devoir02/resources/Pokemon/pokemon20.jpg"};
 	String[]imageDrapeauArray={"resources/drapeaux/drapeau1.jpg","resources/drapeaux/drapeau2.jpg",
-			"resources/drapeaux/drapeau3.jpg","resources/drapeaux/drapeau4.jpg","resources/drapeaux/drapeau5.jpg",
-			"resources/drapeaux/drapeau6.jpg","resources/drapeaux/drapeau7.jpg","resources/drapeaux/drapeau8.jpg",
-			"resources/drapeaux/drapeau9.jpg","resources/drapeaux/drapeau10.jpg","resources/drapeaux/drapeau11.jpg",
-			"resources/drapeaux/drapeau12.jpg","resources/drapeaux/drapeau12.jpg","resources/drapeaux/drapeau14.jpg",
-			"resources/drapeaux/drapeau15.jpg","resources/drapeaux/drapeau16.jpg","resources/drapeaux/drapeau17.jpg",
-			"resources/drapeaux/drapeau18.jpg","resources/drapeaux/drapeau19.jpg","resources/drapeaux/drapeau20.jpg",
-			"resources/drapeaux/drapeau21.jpg","resources/drapeaux/drapeau22.jpg","resources/drapeaux/drapeau23.jpg",
-			"resources/drapeaux/drapeau24.jpg","resources/drapeaux/drapeau25.jpg"};
+			"devoir02/resources/drapeaux/drapeau3.jpg","devoir02/resources/drapeaux/drapeau4.jpg","devoir02/resources/drapeaux/drapeau5.jpg",
+			"devoir02/resources/drapeaux/drapeau6.jpg","devoir02/resources/drapeaux/drapeau7.jpg","devoir02/resources/drapeaux/drapeau8.jpg",
+			"devoir02/resources/drapeaux/drapeau9.jpg","devoir02/resources/drapeaux/drapeau10.jpg","devoir02/resources/drapeaux/drapeau11.jpg",
+			"devoir02/resources/drapeaux/drapeau12.jpg","devoir02/resources/drapeaux/drapeau12.jpg","devoir02/resources/drapeaux/drapeau14.jpg",
+			"devoir02/resources/drapeaux/drapeau15.jpg","devoir02/resources/drapeaux/drapeau16.jpg","devoir02/resources/drapeaux/drapeau17.jpg",
+			"devoir02/resources/drapeaux/drapeau18.jpg","devoir02/resources/drapeaux/drapeau19.jpg","devoir02/resources/drapeaux/drapeau20.jpg",
+			"devoir02/resources/drapeaux/drapeau21.jpg","devoir02/resources/drapeaux/drapeau22.jpg","devoir02/resources/drapeaux/drapeau23.jpg",
+			"devoir02/resources/drapeaux/drapeau24.jpg","devoir02/resources/drapeaux/drapeau25.jpg"};
 	
 	/**
 	 * Constructeur prenant un parametre le non du theme
@@ -87,8 +87,8 @@ public abstract class GenerateurDeCartes {
 	}
 	
 	/**
-	 * Méthode qui générera 2n cartes par paires identiques, selon le thème, et les mélangera (cette méthode 
-	 * devrait faire appel à genereCartes , et aux méthodes duplique et Carte.melangeCartes).
+	 * Méthode qui générera 2n cartes par paires identiques, selon le thème, et les mélangera. Cette méthode 
+	 * fait appel à genereCartes, et aux méthodes duplique et Carte.melangeCartes
 	 * 
 	 * @param n number of cards in an array
 	 * @return an array of cards
@@ -117,8 +117,6 @@ public abstract class GenerateurDeCartes {
 			cartesDouble[i] = cartes[j];
 			j++;
 		}
-		
-		return cartesDouble;
-		
+		return cartesDouble;	
 	}
 }

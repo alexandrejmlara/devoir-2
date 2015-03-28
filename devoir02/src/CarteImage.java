@@ -10,7 +10,7 @@ public class CarteImage extends Carte{
 	 * @param isFace : true = recto, false = verso.
 	 * @param carteNom
 	 */
-    public CarteImage(boolean isFace, String carteNom) {
+    protected CarteImage(boolean isFace, String carteNom) {
 		super(isFace);
 		this.carteNom=carteNom;
 	}

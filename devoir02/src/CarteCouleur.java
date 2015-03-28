@@ -9,7 +9,7 @@ public class CarteCouleur extends Carte {
 	 * (cote image) ou verso (sur le dos, image cachee).
 	 * @param isFace : true = recto, false = verso.
 	 */
-	public CarteCouleur(boolean isFace) {
+	protected CarteCouleur(boolean isFace) {
 		super(isFace);
 	}
 	
