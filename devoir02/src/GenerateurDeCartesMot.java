@@ -13,6 +13,7 @@ public class GenerateurDeCartesMot extends GenerateurDeCartes {
 	
 	
 	GenerateurDeCartesMot(String nomDuTheme){
+		super(nomDuTheme);
 		this.nomDuTheme=nomDuTheme;
 	}
 	
@@ -26,6 +27,13 @@ public class GenerateurDeCartesMot extends GenerateurDeCartes {
 			return 13;
 		else 
 			return 10;	
+	}
+
+
+	@Override
+	public Carte genereUneCarte() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

@@ -73,7 +73,7 @@ public class GenerateurDeCartesCouleur extends GenerateurDeCartes {
 	@Override
 	public int nombreDeCartesDifferentes() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 8;
 	}
 		
 	
