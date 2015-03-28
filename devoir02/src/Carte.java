@@ -3,15 +3,16 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.Random;
 
+
 import javax.swing.JComponent;
-//test
+
 public abstract class Carte extends JComponent {
 
 	private boolean isFace; // true = recto, false = verso
 	
 	/**
-	 * Un constructeur protected prenant un paramètre booléen  indiquant si la carte est sur sa face recto 
-	 * (côté image) ou verso (sur le dos, image cachée).
+	 * Un constructeur protected prenant un paramÃ¨tre boolÃ©en  indiquant si la carte est sur sa face recto 
+	 * (cÃ´tÃ© image) ou verso (sur le dos, image cachÃ©e).
 	 * @param isFace
 	 */
 	protected Carte (boolean isFace){
@@ -19,7 +20,7 @@ public abstract class Carte extends JComponent {
 	}
 	
 	/**
-	 * Un constructeur de copie protected prenant en paramètre une autre instance de Carte
+	 * Un constructeur de copie protected prenant en paramÃ¨tre une autre instance de Carte
 	 * @param c
 	 */
 	protected Carte (Carte c){
@@ -69,14 +70,14 @@ public abstract class Carte extends JComponent {
 		g.fillRect(0, 0, getWidth(), getHeight());	
 	}
 	
-	public abstract void paintRecto(Graphics2D g);
+	public abstract void paintRecto(Graphics g);
 	
 	public abstract boolean rectoIdentique(Carte c);
 	
 	public abstract Object duplique();
 	
 	@Override
-	protected void paintComponent(Graphics g) {
+	public void paintComponent(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
 		if(isFace) paintRecto(g2);
 		else paintVerso(g2);
