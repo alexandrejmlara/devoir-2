@@ -1,35 +1,38 @@
-import java.awt.*;
+import java.awt.Graphics;
 
-public class CarteCouleur extends Carte {
+public class CarteImage extends Carte{
 	
 	private String carteNom;
 	
 	/**
-	 * Constructeur protected prenant un parametre un booleen  indiquant si la carte est sur sa face recto 
-	 * (cote image) ou verso (sur le dos, image cachee).
+	 * * Constructeur protected prenant un parametre un booleen  indiquant si la carte est sur sa face recto 
+	 * (cote image) ou verso (sur le dos, image cachee) et un String avec le nom de la carte
 	 * @param isFace : true = recto, false = verso.
+	 * @param carteNom
 	 */
-	public CarteCouleur(boolean isFace) {
+    public CarteImage(boolean isFace, String carteNom) {
 		super(isFace);
+		this.carteNom=carteNom;
 	}
-	
-	/**
+    
+    /**
 	 * Constructeur de copie recevant en paramètre une autre instance de ce type
-	 * @param c : autre instance de CarteCouleur
+	 * @param c : autre instance de CarteImage
 	 */
-	public CarteCouleur(CarteCouleur c) {
+    public CarteImage(CarteImage c) {
 		super(false);
 		this.carteNom = c.carteNom;
 	}
 
-	/**
+    /**
 	 * Methode implementé de Carte qui peint le recto d'une carte
 	 * @param g
 	 */
 	@Override
-	public void paintRecto(Graphics g){
-		g.fillRect(0, 0, getWidth(), getHeight());
-	};
+	public void paintRecto(Graphics g) {
+		
+		
+	}
 
 	/**
 	 * Méthode implementé de Carte qui prend une autre Carte en paramètre et retournant un booléen indiquant si les deux 
@@ -39,7 +42,7 @@ public class CarteCouleur extends Carte {
 	 */
 	@Override
 	public boolean rectoIdentique(Carte c) {
-		CarteCouleur c2 = (CarteCouleur) c;
+		CarteImage c2 = (CarteImage) c;
 		if ( carteNom.equals(c2.carteNom) ) return true;
 		return false;
 	}
@@ -50,6 +53,6 @@ public class CarteCouleur extends Carte {
 	 */
 	@Override
 	public Object duplique() {
-		return new CarteCouleur(this);
+		return new CarteImage(this);
 	}
 }
