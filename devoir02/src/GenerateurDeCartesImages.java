@@ -27,6 +27,7 @@ public class GenerateurDeCartesImages extends GenerateurDeCartes {
 		super(nomDuTheme);
 		this.nomDuTheme=nomDuTheme;
 		this.optionsDeImage=Tableau;
+		initializePickedCardsArray();
 	}
 	
 	/**

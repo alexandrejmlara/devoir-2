@@ -24,6 +24,7 @@ public class GenerateurDeCartesMot extends GenerateurDeCartes {
 		super(nomDuTheme);
 		this.nomDuTheme=nomDuTheme;
 		this.optionsDeMot=Tableau;
+		initializePickedCardsArray();
 	}
 	
 	/**
