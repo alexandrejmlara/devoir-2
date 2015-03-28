@@ -9,7 +9,7 @@ public abstract class Carte extends JComponent {
 	private boolean isFace; // true = recto, false = verso
 	
 	/**
-	 * Un constructeur protected prenant un parametre un booleen  indiquant si la carte est sur sa face recto 
+	 * Constructeur protected prenant un parametre un booleen  indiquant si la carte est sur sa face recto 
 	 * (cote image) ou verso (sur le dos, image cachee).
 	 * @param isFace : true = recto, false = verso.
 	 */
@@ -18,7 +18,7 @@ public abstract class Carte extends JComponent {
 	}
 	
 	/**
-	 * Un constructeur de copie protected prenant en parametre une autre instance de Carte
+	 * Constructeur de copie protected prenant en parametre une autre instance de Carte
 	 * @param c : une autre instance de Carte
 	 */
 	protected Carte (Carte c){
@@ -101,7 +101,7 @@ public abstract class Carte extends JComponent {
 	
 	/**
 	 * Méthode abstraite prenant une autre Carte en paramètre et retournant un booléen indiquant si les deux 
-	 * cartes ont le même recto . Remarque: le rôle d
+	 * cartes ont le même recto.
 	 * @param c : tipe Carte
 	 * @return true si les cartes sont identiques
 	 */
