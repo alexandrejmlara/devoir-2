@@ -5,11 +5,15 @@ public abstract class GenerateurDeCartes {
 	 */
 	// couleur
 	// motProvincesCanada
-	// motVilleQuebec
+	// motVillesQuebec
 	// imagePokemon
 	// imageFiguresGeometriques
 	// multiple
 	private String nom;
+	
+	public GenerateurDeCartes(String nom){
+		this.nom = nom;
+	}
 	
 	/**
 	 * Une méthode retournant le nom du thème
@@ -45,7 +49,21 @@ public abstract class GenerateurDeCartes {
 	 * @return an array of cards
 	 */
 	public Carte[] genereCartes(int n){
+		// couleur
+		// motProvincesCanada
+		// motVillesQuebec
+		// imagePokemon
+		// imageFiguresGeometriques
+		// multiple
+		Carte [] cartes = null;
 		
+		// Return a tableau of cartes couleur
+		if ( nom.equals("couleur") ) cartes = new GenerateurDeCartesCouleur().genereCartes(n);
+		else if ( nom.equals("motProvincesCanada") || nom.equals("motVillesQuebec") ) = new GenerateurDeCartesMot(nom);
+		else if ( nom.equals("imagePokemon") ) = new GenerateurDeCartesImage(nom);
+		else if ( nom.equals("multiple") ) = new GenerateurDeCartesMultiple();
+		
+		return cartes;
 	}
 	
 	/**
@@ -57,6 +75,28 @@ public abstract class GenerateurDeCartes {
 	 * @return an array of cards
 	 */
 	public Carte[] generePairesDeCartesMelangees(int n){
+		
+		Carte [] cartes = null;
+		Carte [] cartesDouble = new Carte[n*2];
+		
+		int i;
+		
+		if ( nom.equals("couleur") ) cartes = new GenerateurDeCartesCouleur().genereCartes(n);
+		else if ( nom.equals("motProvincesCanada") || nom.equals("motVillesQuebec") ) = new GenerateurDeCartesMot(nom).genereCartes(n);
+		else if ( nom.equals("imagePokemon") ) = new GenerateurDeCartesImage(nom).genereCartes(n);
+		else if ( nom.equals("multiple") ) = new GenerateurDeCartesMultiple().genereCartes(n);
+		
+		for( i = 0; i < n; i++ ){
+			cartesDouble[i] = cartes[i];
+		}
+		
+		int j = 0;
+		for( ; i < n*2; i++ ){
+			cartesDouble[i] = cartes[j];
+			j++;
+		}
+		
+		return cartesDouble;
 		
 	}
 }
