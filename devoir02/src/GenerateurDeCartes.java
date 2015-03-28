@@ -1,8 +1,14 @@
 
-public class GenerateurDeCartes {
+public abstract class GenerateurDeCartes {
 	/**
 	 * Une propriété nom comportant le nom du thème
 	 */
+	// couleur
+	// motProvincesCanada
+	// motVilleQuebec
+	// imagePokemon
+	// imageFiguresGeometriques
+	// multiple
 	private String nom;
 	
 	/**
@@ -19,9 +25,7 @@ public class GenerateurDeCartes {
 	 * 
 	 * @return une référence de type Carte
 	 */
-	public abstract Carte genereUneCarte() {
-		
-	}
+	public abstract Carte genereUneCarte();
 	
 	/**
 	 * Une méthode abstraite qui retournera un entier indiquant le nombre de 
@@ -30,9 +34,7 @@ public class GenerateurDeCartes {
 	 * @return un entier indiquant le nombre de cartes différentes disponibles 
 	 * dans ce thème
 	 */
-	public abstract int nombreDeCartesDifferentes(){
-		
-	}
+	public abstract int nombreDeCartesDifferentes();
 	
 	/**
 	 * Une méthode Carte[] genereCartes(int n) qui générera un tableau de n 
