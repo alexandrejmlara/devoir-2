@@ -1,8 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.*;
+
 
 public class PanneauDeCartes {
+	public Carte c;
+	
+	
 	public static void delai(long millisecondes)
     {
         try {
@@ -20,7 +25,6 @@ public class PanneauDeCartes {
      * @param delaiAffichageInitial : temps d'affichage initial des cartes
      * @param delaiAffichageMauvaisePaire : temps de délai lors d'une mauvaise paire
      */
-     // ATTENTION: il manque l'argument du tableau de carte
 	public void PanneauDeCartes(int nRangees, int nColonnes,  int delaiAffichageInitial, int delaiAffichageMauvaisePaire)
     {
     	JFrame frame = new JFrame("Jeu de cartes mémoire");
@@ -31,17 +35,15 @@ public class PanneauDeCartes {
         frame.setLayout(layout);
         JPanel pane = new JPanel();
         
-        
-        // ATTENTION: il faut changer les JButton pour des cartes
         for (int row = 0; row < nRangees; row++){
             for (int col = 0; col < nColonnes; col++){
-                JButton b = new JButton();
-                pane.add(b);
-                b.addMouseListener(new MyMouseListener());
+                
+            	c = new CarteCouleur(false);
+            	c.addMouseListener(new MyMouseListener());
+                pane.add(c);
             }
         }
         pane.setLayout(layout);
-        
         
         
         frame.getContentPane().add(pane, BorderLayout.CENTER);
@@ -57,14 +59,20 @@ public class PanneauDeCartes {
     
     class MyMouseListener extends MouseAdapter
     {
-        private int coup = 0;
+        // coup : compteur pour le nombre de coups effectué par le joueur
+    	private int coup = 0;
         public void setCoup(int c){coup += c;} // Permet d'incrémenter du nombre voulu
         public int getCoup(){return coup;} // Retourne le nombre de coups
         
         public void mouseClicked(MouseEvent event) // modifier ici pour action
         {
-            //event.getSource();
-            System.out.println("Bravo, vous avez réussi en " + this.getCoup() + " coups!"); // À mettre dans une condition
+            if(event.getSource()== c){
+            	c.retourne();
+            };
+            
+            
+            setCoup(1);
+        	System.out.println("Bravo, vous avez réussi en " + this.getCoup() + " coups!"); // À mettre dans une condition
         } 
     }
 }
