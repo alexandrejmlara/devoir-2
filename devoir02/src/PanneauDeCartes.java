@@ -66,9 +66,10 @@ public class PanneauDeCartes {
         
         public void mouseClicked(MouseEvent event) // modifier ici pour action
         {
-            if(event.getSource()== c){
-            	c.retourne();
-            };
+            Object source = event.getSource();
+            if(source instanceof Carte){
+            	Carte card = (Carte) source;
+            	card.retourne();
             
             
             setCoup(1);
