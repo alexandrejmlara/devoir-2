@@ -1,4 +1,5 @@
 
+
 public class JeuMemory {
     /** 
      * 
@@ -10,20 +11,26 @@ public class JeuMemory {
      */
     public void partie(int nR, int nC, int delaiAI, int delaiMP, int theme)
     {
-        
+        GenerateurDeCartes gdc = null;
     	
     	// Choix du theme de carte
-    	/*
-    	Carte carte;
+    	
     	switch (theme) {
-	        case 0: carte = new CarteCouleur();
-	        case 1: carte = new Carte.CarteMot();
-	        case 2: carte = new Carte.CarteImage(); 	
+	        case 0: gdc = new GenerateurDeCartesCouleur();
+	        //case 1: gdc = new GenerateurDeCartesMot("motProvincesCanada", gdc.motProvincesCanadaArray);
+	        //case 2: gdc = new GenerateurDeCartesMot("motVillesQuebec", gdc.motVillesQuebecArray);
+	        //case 3: gdc = new GenerateurDeCartesImages("imagePokemon", gdc.imagePokemonArray);
+	        //case 4: gdc = new GenerateurDeCartesImages("imageDrapeau", gdc.imageDrapeauArray);
+	        //case 5: nom = "";
+	        default: gdc = new GenerateurDeCartesCouleur();
         }
-        */
+    	
+    	Carte[] cards = gdc.genereCartes(nR*nC);
+    	
+    	
     	
     	PanneauDeCartes p = new PanneauDeCartes();
-        p.PanneauDeCartes(nR, nC, delaiAI, delaiMP); // Il manque le tableau de cartes dans les arguments
+        p.PanneauDeCartes(nR, nC, cards, delaiAI, delaiMP); // Il manque le tableau de cartes dans les arguments
         
     }
     
@@ -50,12 +57,26 @@ public class JeuMemory {
         }catch (IndexOutOfBoundsException e){
             System.out.println("Nombre de paramètres insuffisants");
             System.out.println("Utilisation: java Laby <nRangees> <nColonnes> <delaiAffichageInitial> <delaiAffichageMauvaisePaire> <numeroDeTheme>");
-            System.out.println("Ex: java JeuMemory 4 2 3 2 2 1");
+            System.out.println("Ex: java JeuMemory 4 2 3000 2000 2");
+            System.out.println("Liste des thèmes:");
+            System.out.println("0: Couleurs");
+            System.out.println("1: Provinces du Canada");
+            System.out.println("2: Ville du Québec");
+            System.out.println("3: Pokemon");
+            System.out.println("4: Drapeau");
+            System.out.println("5: Mélange des thèmes 0 à 4");
             System.exit(1);
         }catch (IllegalArgumentException e){
             System.out.println("Paramètres inadéquats");
             System.out.println("Utilisation: java Laby <nRangees> <nColonnes> <delaiAffichageInitial> <delaiAffichageMauvaisePaire> <numeroDeTheme>");
-            System.out.println("Ex: java JeuMemory 4 2 3 2 2 1");
+            System.out.println("Ex: java JeuMemory 4 2 3000 2000 2");
+            System.out.println("Liste des thèmes:");
+            System.out.println("0: Couleurs");
+            System.out.println("1: Provinces du Canada");
+            System.out.println("2: Ville du Québec");
+            System.out.println("3: Pokemon");
+            System.out.println("4: Drapeau");
+            System.out.println("5: Mélange des thèmes 0 à 4");
             System.exit(1);
         }
         
