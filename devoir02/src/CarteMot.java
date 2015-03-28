@@ -1,15 +1,14 @@
-import java.awt.Graphics2D;
-
-import sun.security.krb5.internal.crypto.crc32;
-
+import java.awt.Graphics;
 
 public class CarteMot extends Carte {
 
 	private static final long serialVersionUID = 1L;
 	private String carteNom;
-
-	protected CarteMot(boolean isFace) {
+  
+	protected CarteMot(boolean isFace,String carteNom) {
 		super(isFace);
+		this.carteNom=carteNom;
+		
 	}
 	
 	protected CarteMot(CarteMot c) {
@@ -18,7 +17,7 @@ public class CarteMot extends Carte {
 	}
 
 	@Override
-	public void paintRecto(Graphics2D g) {
+	public void paintRecto(Graphics g) {
 		super.paintComponent(g);
 		g.drawString(carteNom, 0, 0);
 	}
