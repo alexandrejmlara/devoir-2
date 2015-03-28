@@ -1,27 +1,24 @@
-import java.awt.Color;
-import java.awt.Graphics2D;
-
+import java.awt.*;
 
 public class CarteCouleur extends Carte {
 	private static final long serialVersionUID = 1L;
 	String carteNom;
-	
-	protected CarteCouleur(boolean isFace) {
-		super(isFace);	
+	private Color couleur;
+
+	public CarteCouleur(boolean isFace) {
+		super(isFace);
 	}
 	
-	protected CarteCouleur(CarteCouleur c) {
+	public CarteCouleur(CarteCouleur c) {
 		super(false);
 		this.carteNom = c.carteNom;
 	}
+
 	
-	@Override
-	public void paintRecto(Graphics2D g) {
-		super.paintComponent(g);
-		//g.setPaint(Color.BLACK); ça doit être fais apès dans une autre classe
+	public void paintRecto(Graphics g){
+		g.setColor(Color.RED);
 		g.fillRect(0, 0, getWidth(), getHeight());
-		
-	}
+	};
 
 	@Override
 	public boolean rectoIdentique(Carte c) {
