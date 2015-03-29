@@ -1,5 +1,4 @@
 
-
 public class JeuMemory {
     /** 
      * 
@@ -7,25 +6,28 @@ public class JeuMemory {
      * @param nC : nombre de colonnes de cartes
      * @param delaiAI : temps d'affichage initial des cartes
      * @param delaiMP : temps de délai lors d'une mauvaise paire
-     * @param theme : numéro du thÃ¨me choisi pour la partie
+     * @param theme : numéro du thème choisi pour la partie
      */
     public void partie(int nR, int nC, int delaiAI, int delaiMP, int theme)
     {
-        GenerateurDeCartes gdc = null;
+        Carte[] cards = null;
+        GenerateurDeCartesCouleur gdc1;
+        GenerateurDeCartesMot gdc2; 
     	
     	// Choix du theme de carte
     	
     	switch (theme) {
-	        case 0: gdc = new GenerateurDeCartesCouleur();
-	        //case 1: gdc = new GenerateurDeCartesMot("motProvincesCanada", gdc.motProvincesCanadaArray);
+	        case 0: gdc1 = new GenerateurDeCartesCouleur();
+	        		cards = gdc1.genereCartes(nR*nC);
+	        //case 1: gdc2 = new GenerateurDeCartesMot("motProvincesCanada", gdc2.motProvincesCanadaArray);
+	        		//cards = gdc2.genereCartes(nR*nC);
 	        //case 2: gdc = new GenerateurDeCartesMot("motVillesQuebec", gdc.motVillesQuebecArray);
 	        //case 3: gdc = new GenerateurDeCartesImages("imagePokemon", gdc.imagePokemonArray);
 	        //case 4: gdc = new GenerateurDeCartesImages("imageDrapeau", gdc.imageDrapeauArray);
-	        //case 5: nom = "";
-	        default: gdc = new GenerateurDeCartesCouleur();
+	        //case 5: gdc = 
+	        default: gdc1 = new GenerateurDeCartesCouleur();
         }
     	
-    	Carte[] cards = gdc.genereCartes(nR*nC);
     	
     	
     	
