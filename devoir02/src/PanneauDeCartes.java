@@ -4,7 +4,7 @@ import java.awt.event.*;
 
 
 public class PanneauDeCartes {
-	
+	public Carte c;
 	public Carte c1 = null; // Première carte retournée
 	public Carte c2 = null; // Deuxième carte retournée
 	
@@ -12,6 +12,18 @@ public class PanneauDeCartes {
 	public void setCoup(int c){coup += c;} // Permet d'incrémenter du nombre voulu
     public int getCoup(){return coup;} // Retourne le nombre de coups
 	
+    
+    /**
+     * delaiInitial: attribut gérant le délai avant de cacher toutes les cartes
+     * delaiMauvaisePaire: attribut gérant le délai dans le cas d'une mauvaise paire
+     */
+    private int delaiInitial;
+    private int delaiMauvaisePaire;
+    public void setDelaiInitial(int a){delaiInitial = a;}
+    public void setDelaiMauvaisePaire(int a){delaiMauvaisePaire = a;}
+    public int getDelaiInitial(){return delaiInitial;}
+    public int getDelaiMauvaisePaire(){return delaiMauvaisePaire;}
+    
 	public static void delai(long millisecondes)
     {
         try {
@@ -30,8 +42,11 @@ public class PanneauDeCartes {
      * @param delaiAffichageMauvaisePaire : temps de délai lors d'une mauvaise paire
      */
 	public void PanneauDeCartes(int nRangees, int nColonnes, Carte[] cartes,  int delaiAffichageInitial, int delaiAffichageMauvaisePaire)
-    {
-    	JFrame frame = new JFrame("Jeu de cartes mémoire");
+	{
+    	setDelaiInitial(delaiAffichageInitial);
+    	setDelaiMauvaisePaire(delaiAffichageMauvaisePaire);
+		
+		JFrame frame = new JFrame("Jeu de cartes mémoire");
         
         GridLayout layout = new GridLayout(nRangees,nColonnes);
         layout.setHgap(10);
@@ -66,23 +81,21 @@ public class PanneauDeCartes {
             Object source = event.getSource();
         	if(source instanceof Carte){
             	Carte card = (Carte) source;
-            	if(c1 == null){
-            		card = c1;
-            		if(card.estCachee()) card.retourne();
-            	} else if(c2 == null){
-            		card = c2;
-            		if(card.estCachee()) card.retourne();
-            		if(c1.rectoIdentique(c2) == true){
-            			c1 = null;
+            	if(card.estCachee()) card.retourne();
+            	if(c1 == null) c1 = card;
+            	else {
+            		c2 = card; 
+            		if(c2.rectoIdentique(c1)){
+            			c1 = null; 
             			c2 = null;
             		} else {
+            			delai(delaiMauvaisePaire);
             			c1.retourne();
             			c2.retourne();
             			c1 = null;
             			c2 = null;
             		}
             	}
-            	
             }
             
             
