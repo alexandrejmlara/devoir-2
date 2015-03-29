@@ -1,8 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-
-
+/**
+ * @author Gabriel Houle-Violette 1023967
+ * @author Rodolpho Pinheiro D'Azevedo 20026356
+ */
 public class PanneauDeCartes {
 	public Carte c;
 	public Carte c1 = null; // Première carte retournée

@@ -1,7 +1,10 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
-
+/**
+ * @author Gabriel Houle-Violette 1023967
+ * @author Rodolpho Pinheiro D'Azevedo 20026356
+ */
 public class GenerateurDeCartesCouleur extends GenerateurDeCartes {
 	/**
 	 * declaration de trois tableaux. Le tableau nCartesCouleur nous donne n cartes de couleur aleatoires, le 

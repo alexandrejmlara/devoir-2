@@ -1,5 +1,8 @@
 import java.awt.Graphics;
-
+/**
+ * @author Gabriel Houle-Violette 1023967
+ * @author Rodolpho Pinheiro D'Azevedo 20026356
+ */
 public class CarteImage extends Carte{
 	
 	private String carteNom;

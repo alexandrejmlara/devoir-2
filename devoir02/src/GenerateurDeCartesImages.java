@@ -3,8 +3,10 @@ import java.awt.Image;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
-
-
+/**
+ * @author Gabriel Houle-Violette 1023967
+ * @author Rodolpho Pinheiro D'Azevedo 20026356
+ */
 public class GenerateurDeCartesImages extends GenerateurDeCartes {
 
 	/**

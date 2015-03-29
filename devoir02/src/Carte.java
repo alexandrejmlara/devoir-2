@@ -3,7 +3,10 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.Random;
 import javax.swing.JComponent;
-
+/**
+ * @author Gabriel Houle-Violette 1023967
+ * @author Rodolpho Pinheiro D'Azevedo 20026356
+ */
 public abstract class Carte extends JComponent {
 
 	private boolean isFace; // true = recto, false = verso
